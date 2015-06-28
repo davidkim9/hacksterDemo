@@ -45,18 +45,15 @@ app.post('/gps', function (req, res) {
 				locationData.lon = body.lon;
 				locationData.dateCreated = new Date();
 				locationData.save(function(err){
-					res.send('Bueno!');
+					return res.send('Bueno!');
 				});
 			}else{
-				res.sendStatus(400);
-				// res.send('');
+				return res.sendStatus(400);
 			}
 		});
 	}else{
-		//res.send('');
-		res.sendStatus(400);
+		return res.sendStatus(400);
 	}
-	console.log(req.body);
 });
 
 app.get('/gps', function (req, res) {
@@ -68,6 +65,7 @@ app.get('/gps', function (req, res) {
 	console.log("Wut");
 });
 
+app.use(express.static('./public'));
 app.get('/', function(req, res) {
   res.render('index');
 });

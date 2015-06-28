@@ -18,8 +18,6 @@ var loadGoogleMaps = function (){
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map($("#map")[0], myOptions);
-
-
 }
 
 var updateMapCenter = function(){
@@ -41,6 +39,8 @@ function loadGPSData(){
 		});
 		marker.setMap(map);
 		updateMapCenter();
+		
+		$(".gLink").attr('href', 'https://www.google.com/maps?q=' + lat + ',' + lon);
 	});
 }
 

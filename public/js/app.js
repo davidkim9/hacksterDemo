@@ -1,6 +1,6 @@
 var lat = 32.7268545;
 var lon = -117.192585;
-var zoom = 12;
+var zoom = 14;
 var map;
 
 var coordinate = new google.maps.LatLng(lat, lon);
@@ -39,7 +39,7 @@ function loadGPSData(){
 		});
 		marker.setMap(map);
 		updateMapCenter();
-		
+
 		$(".gLink").attr('href', 'https://www.google.com/maps?q=' + lat + ',' + lon);
 	});
 }

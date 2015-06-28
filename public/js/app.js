@@ -26,20 +26,25 @@ var updateMapCenter = function(){
 	map.setCenter(coordinate);
 }
 
-$.get( "/gps", function( data ) {
-	lat = data.lat;
-	lon = data.lon;
-	coordinate = new google.maps.LatLng(lat, lon);
+function loadGPSData(){
+	$.get( "/gps", function( data ) {
+		lat = data.lat;
+		lon = data.lon;
+		coordinate = new google.maps.LatLng(lat, lon);
 
-	//Remove old marker
-	if(marker)
-		marker.setMap(null);
-	marker = new google.maps.Marker({
-	  content: "asdf",
-	  position: coordinate
+		//Remove old marker
+		if(marker)
+			marker.setMap(null);
+		marker = new google.maps.Marker({
+		  content: "asdf",
+		  position: coordinate
+		});
+		marker.setMap(map);
+		updateMapCenter();
 	});
-	marker.setMap(map);
-	updateMapCenter();
-});
+}
 
 loadGoogleMaps();
+
+setInterval(loadGPSData, 5000);
+loadGPSData();

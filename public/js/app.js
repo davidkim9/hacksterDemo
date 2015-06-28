@@ -10,7 +10,7 @@ var marker = new google.maps.Marker({
   content: "asdf",
   position: coordinate
 });
-
+ 
 var loadGoogleMaps = function (){
 	var myOptions = {
 		center: coordinate,

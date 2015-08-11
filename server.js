@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 
 //Mongo Stuff
 
+
 var mongoose = require('mongoose');
 mongoose.connect(process.env.CUSTOMCONNSTR_MONGOLAB_URI || "mongodb://localhost/local");
 
